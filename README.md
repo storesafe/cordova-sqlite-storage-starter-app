@@ -1,6 +1,6 @@
-# Cordova starter test app
+# Cordova sqlite starter test app
 
-Template to demonstrate reproducible issues with Cordova apps (using simple dialogs plugin)
+Template to demonstrate reproducible issues with Cordova sqlite plugin. May be used as a starter project.
 
 **AUTHOR:** [@brodybits (Christopher J. Brody aka Chris Brody)](https://github.com/brodybits)
 
@@ -16,6 +16,7 @@ Template to demonstrate reproducible issues with Cordova apps (using simple dial
 - JQuery (2.2.4) - included (MIT license)
 - `cordova-plugin-whitelist` - specified in `config.xml`
 - `cordova-plugin-dialogs` - specified in `config.xml`
+- Cordova sqlite plugin - please add the desired version from the Cordova CLI as described below
 
 NOTE: The `cordova-plugin-whitelist` and `cordova-plugin-dialogs` were added added using the `--save` flag to ensure that these plugins would be automatically installed. It is recommended to use the `--save` flags to add any other plugins rather than adding such plugins to git.
 
@@ -27,19 +28,25 @@ cordova plugin add my-plugin-id --save
 
 ## How to run
 
-1. Add the desired platform(s), for example:
+1. Add the desired Cordova sqlite plugin version, for example:
+
+```shell
+cordova plugin add cordova-sqlite-storage --save
+```
+
+2. Add the desired platform(s), for example:
 
 ```shell
 cordova platform add android
 ```
 
-2. Do `cordova prepare` (may not always be necessary but good to be on the safe side):
+3. Do `cordova prepare` (may not always be necessary but good to be on the safe side):
 
 ```shell
 cordova prepare
 ```
 
-3. Run it on a mobile emulator or device, for example:
+4. Run it on your mobile emulator or device, for example:
 
 ```shell
 cordova run android
@@ -47,4 +54,11 @@ cordova run android
 
 ## Functionality
 
-- Upon **Show native alert** click: show a native alert dialog
+- Upon startup: open a database and CREATE the test table
+- Show a native alert dialog
+- Echo test
+- Self test
+- Show record
+- Add record
+- Add 100 records from JSON object after delay
+- Delete all records
