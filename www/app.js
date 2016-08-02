@@ -26,6 +26,26 @@ function selfTest() {
   });
 }
 
+function stringTest1() {
+  database.transaction(function(transaction) {
+    transaction.executeSql("SELECT upper('Test string') AS upperText", [], function(ignored, resultSet) {
+      navigator.notification.alert('Got upperText result (ALL CAPS): ' + resultSet.rows.item(0).upperText);
+    });
+  }, function(error) {
+    navigator.notification.alert('SELECT count error: ' + error.message);
+  });
+}
+
+function stringTest2() {
+  database.transaction(function(transaction) {
+    transaction.executeSql('SELECT upper(?) AS upperText', ['Test string'], function(ignored, resultSet) {
+      navigator.notification.alert('Got upperText result (ALL CAPS): ' + resultSet.rows.item(0).upperText);
+    });
+  }, function(error) {
+    navigator.notification.alert('SELECT count error: ' + error.message);
+  });
+}
+
 function showCount() {
   database.transaction(function(transaction) {
     transaction.executeSql('SELECT count(*) AS recordCount FROM SampleTable', [], function(ignored, resultSet) {
@@ -85,7 +105,7 @@ function addJSONRecordsAfterDelay() {
     }, function(error) {
       navigator.notification.alert('ADD records after delay ERROR');
     }, function() {
-      navigator.notification.alert('ADD records after delay OK');
+      navigator.notification.alert('ADD 100 records after delay OK');
     });
   });
 }
@@ -109,6 +129,8 @@ document.addEventListener('deviceready', function() {
   $('#show-alert').click(showNativeAlert);
   $('#echo-test').click(echoTest);
   $('#self-test').click(selfTest);
+  $('#string-test-1').click(stringTest1);
+  $('#string-test-2').click(stringTest2);
   $('#show-count').click(showCount);
   $('#add-record').click(addRecord);
   $('#add-json-records-after-delay').click(addJSONRecordsAfterDelay);

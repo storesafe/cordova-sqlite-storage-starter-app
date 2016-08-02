@@ -1,4 +1,4 @@
-# Cordova sqlite starter test app
+# Cordova sqlite bootstrap test app
 
 Template to demonstrate reproducible issues with Cordova sqlite plugin. May be used as a starter project.
 
@@ -58,7 +58,9 @@ cordova run android
 - Show a native alert dialog
 - Echo test
 - Self test
+- String test 1
+- String test 2 (string as a SQL parameter)
 - Show record
 - Add record
-- Add 100 records from JSON object after delay
+- Add 100 records from JavaScript object after delay
 - Delete all records
