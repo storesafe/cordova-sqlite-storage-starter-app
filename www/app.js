@@ -26,6 +26,10 @@ function selfTest() {
   });
 }
 
+function reload() {
+  location.reload();
+}
+
 function stringTest1() {
   database.transaction(function(transaction) {
     transaction.executeSql("SELECT upper('Test string') AS upperText", [], function(ignored, resultSet) {
@@ -129,6 +133,7 @@ document.addEventListener('deviceready', function() {
   $('#show-alert').click(showNativeAlert);
   $('#echo-test').click(echoTest);
   $('#self-test').click(selfTest);
+  $('#reload').click(reload);
   $('#string-test-1').click(stringTest1);
   $('#string-test-2').click(stringTest2);
   $('#show-count').click(showCount);

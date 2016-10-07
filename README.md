@@ -58,6 +58,7 @@ cordova run android
 - Show a native alert dialog
 - Echo test
 - Self test
+- Location reload
 - String test 1
 - String test 2 (string as a SQL parameter)
 - Show record
