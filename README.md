@@ -65,3 +65,11 @@ cordova run android
 - Add record
 - Add 100 records from JavaScript object after delay
 - Delete all records
+- Follow link to page 2
+- Change window.location to page 2
+
+## Multi-page test
+
+It is possible to switch between two pages using "follow link" buttons. The main page also has a button to go to page 2 by changing `window.location`. There is also a button on both pages to try `location.reload()`.
+
+The sqlite plugin should continue to work after the user changes to another page or triggers `location.reload()`.

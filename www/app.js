@@ -129,6 +129,10 @@ function showNativeAlert() {
   navigator.notification.alert('Native alert message');
 }
 
+function goToPage2() {
+  window.location = "page2.html";
+}
+
 document.addEventListener('deviceready', function() {
   $('#show-alert').click(showNativeAlert);
   $('#echo-test').click(echoTest);
@@ -140,6 +144,7 @@ document.addEventListener('deviceready', function() {
   $('#add-record').click(addRecord);
   $('#add-json-records-after-delay').click(addJSONRecordsAfterDelay);
   $('#delete-records').click(deleteRecords);
+  $('#location-page2').click(goToPage2);
 
   initDatabase();
 });
