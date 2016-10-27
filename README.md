@@ -14,11 +14,10 @@ Template to demonstrate reproducible issues with Cordova sqlite plugin. May be u
 
 - Bootstrap (3.3.6) - included (MIT license)
 - JQuery (2.2.4) - included (MIT license)
-- `cordova-plugin-whitelist` - specified in `config.xml`
 - `cordova-plugin-dialogs` - specified in `config.xml`
 - Cordova sqlite plugin - please add the desired version from the Cordova CLI as described below
 
-NOTE: The `cordova-plugin-whitelist` and `cordova-plugin-dialogs` were added added using the `--save` flag to ensure that these plugins would be automatically installed. It is recommended to use the `--save` flags to add any other plugins rather than adding such plugins to git.
+NOTE: `cordova-plugin-dialogs` was added using the `--save` flag to ensure that this plugin would be automatically installed. It is recommended to use the `--save` flags to add any other plugins rather than adding such plugins to git.
 
 ## To add another plugin
 
@@ -55,7 +54,7 @@ cordova run android
 ## Functionality
 
 - Upon startup: open a database and CREATE the test table
-- Show a native alert dialog
+- Native alert dialog test
 - Echo test
 - Self test
 - Location reload

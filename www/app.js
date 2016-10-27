@@ -125,8 +125,8 @@ function deleteRecords() {
   });
 }
 
-function showNativeAlert() {
-  navigator.notification.alert('Native alert message');
+function nativeAlertTest() {
+  navigator.notification.alert('Native alert test message');
 }
 
 function goToPage2() {
@@ -134,7 +134,7 @@ function goToPage2() {
 }
 
 document.addEventListener('deviceready', function() {
-  $('#show-alert').click(showNativeAlert);
+  $('#native-alert-test').click(nativeAlertTest);
   $('#echo-test').click(echoTest);
   $('#self-test').click(selfTest);
   $('#reload').click(reload);
