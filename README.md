@@ -10,6 +10,8 @@ Template to demonstrate reproducible issues with Cordova sqlite plugin. May be u
 
 **IMPORTANT:** Whitelist and intent items are omitted from this test app.
 
+**NOTICE:** This test does not work on macOS ("osx") since it is not supported by `cordova-plugin-dialogs`.
+
 ## Dependencies
 
 - Bootstrap (3.3.6) - included (MIT license)
