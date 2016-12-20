@@ -1,6 +1,4 @@
-# Cordova sqlite bootstrap test app
-
-Template to demonstrate reproducible issues with Cordova sqlite plugin. May be used as a starter project.
+# Cordova sqlite bootstrap starter app
 
 **AUTHOR:** [@brodybits (Christopher J. Brody aka Chris Brody)](https://github.com/brodybits)
 
@@ -8,18 +6,20 @@ Template to demonstrate reproducible issues with Cordova sqlite plugin. May be u
 
 **NOTE:** This project includes JQuery (2.2.4) and Bootstrap (3.3.6) under the MIT license. Otherwise there is no code copied from other sources.
 
-**IMPORTANT:** Whitelist and intent items are omitted from this test app.
+**IMPORTANT:** Whitelist and intent items are omitted from this app.
 
-**NOTICE:** This test does not work on macOS ("osx") since it is not supported by `cordova-plugin-dialogs`.
+**NOTICE 1:** This app does not work on macOS ("osx") since it is not supported by `cordova-plugin-dialogs`.
+
+**NOTICE 2:** `cordova-sqlite-storage` 1.5.x is specified which works on Visual Studio 2015, *NOT* on Visual Studio 2017 (RC).
 
 ## Dependencies
 
 - Bootstrap (3.3.6) - included (MIT license)
 - JQuery (2.2.4) - included (MIT license)
 - `cordova-plugin-dialogs` - specified in `config.xml`
-- Cordova sqlite plugin - please add the desired version from the Cordova CLI as described below
+- `cordova-sqlite-storage` plugin - specified in `config.xml`
 
-NOTE: `cordova-plugin-dialogs` was added using the `--save` flag to ensure that this plugin would be automatically installed. It is recommended to use the `--save` flags to add any other plugins rather than adding such plugins to git.
+NOTE: The plugins were added using the `--save` flag to ensure that they would be automatically installed. It is recommended to use the `--save` flags to add any other plugins rather than adding such plugins to git.
 
 ## To add another plugin
 
@@ -29,28 +29,28 @@ cordova plugin add my-plugin-id --save
 
 ## How to run
 
-1. Add the desired Cordova sqlite plugin version, for example:
-
-```shell
-cordova plugin add cordova-sqlite-storage --save
-```
-
-2. Add the desired platform(s), for example:
+* Add the desired platform(s), for example:
 
 ```shell
 cordova platform add android
 ```
 
-3. Do `cordova prepare` (may not always be necessary but good to be on the safe side):
+* OPTIONAL: Do `cordova prepare` (may be needed in certain situations):
 
 ```shell
 cordova prepare
 ```
 
-4. Run it on your mobile emulator or device, for example:
+* Run it on your mobile emulator or device, for example:
 
 ```shell
 cordova run android
+```
+
+or
+
+```shell
+cordova run android --device
 ```
 
 ## Functionality
