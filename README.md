@@ -10,7 +10,7 @@
 
 **NOTICE 1:** This app does not work on macOS ("osx") since it is not supported by `cordova-plugin-dialogs`.
 
-**NOTICE 2:** `cordova-sqlite-storage` 1.5.x is specified which works on Visual Studio 2015, *NOT* on Visual Studio 2017 (RC).
+**ADDITIONAL NOTE:** This project is now updated to use `cordova-sqlite-storage` 2.1.x which requires Visual Studio 2017 for Windows platform.
 
 ## Dependencies
 
