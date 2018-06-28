@@ -12,17 +12,17 @@ function initDatabase() {
 
 function echoTest() {
   window.sqlitePlugin.echoTest(function() {
-    navigator.notification.alert('Echo test OK');
+    showMessage('Echo test OK');
   }, function(error) {
-    navigator.notification.alert('Echo test ERROR: ' + error.message);
+    showMessage('Echo test ERROR: ' + error.message);
   });
 }
 
 function selfTest() {
   window.sqlitePlugin.selfTest(function() {
-    navigator.notification.alert('Self test OK');
+    showMessage('Self test OK');
   }, function(error) {
-    navigator.notification.alert('Self test ERROR: ' + error.message);
+    showMessage('Self test ERROR: ' + error.message);
   });
 }
 
@@ -33,30 +33,30 @@ function reload() {
 function stringTest1() {
   database.transaction(function(transaction) {
     transaction.executeSql("SELECT upper('Test string') AS upperText", [], function(ignored, resultSet) {
-      navigator.notification.alert('Got upperText result (ALL CAPS): ' + resultSet.rows.item(0).upperText);
+      showMessage('Got upperText result (ALL CAPS): ' + resultSet.rows.item(0).upperText);
     });
   }, function(error) {
-    navigator.notification.alert('SELECT count error: ' + error.message);
+    showMessage('SELECT count error: ' + error.message);
   });
 }
 
 function stringTest2() {
   database.transaction(function(transaction) {
     transaction.executeSql('SELECT upper(?) AS upperText', ['Test string'], function(ignored, resultSet) {
-      navigator.notification.alert('Got upperText result (ALL CAPS): ' + resultSet.rows.item(0).upperText);
+      showMessage('Got upperText result (ALL CAPS): ' + resultSet.rows.item(0).upperText);
     });
   }, function(error) {
-    navigator.notification.alert('SELECT count error: ' + error.message);
+    showMessage('SELECT count error: ' + error.message);
   });
 }
 
 function showCount() {
   database.transaction(function(transaction) {
     transaction.executeSql('SELECT count(*) AS recordCount FROM SampleTable', [], function(ignored, resultSet) {
-      navigator.notification.alert('RECORD COUNT: ' + resultSet.rows.item(0).recordCount);
+      showMessage('RECORD COUNT: ' + resultSet.rows.item(0).recordCount);
     });
   }, function(error) {
-    navigator.notification.alert('SELECT count error: ' + error.message);
+    showMessage('SELECT count error: ' + error.message);
   });
 }
 
@@ -64,9 +64,9 @@ function addRecord() {
   database.transaction(function(transaction) {
     transaction.executeSql('INSERT INTO SampleTable VALUES (?,?)', ['User '+nextUser, nextUser]);
   }, function(error) {
-    navigator.notification.alert('INSERT error: ' + error.message);
+    showMessage('INSERT error: ' + error.message);
   }, function() {
-    navigator.notification.alert('INSERT OK');
+    showMessage('INSERT OK');
     ++nextUser;
   });
 }
@@ -107,9 +107,9 @@ function addJSONRecordsAfterDelay() {
           [recordValue.name, recordValue.score]);
       });
     }, function(error) {
-      navigator.notification.alert('ADD records after delay ERROR');
+      showMessage('ADD records after delay ERROR');
     }, function() {
-      navigator.notification.alert('ADD 100 records after delay OK');
+      showMessage('ADD 100 records after delay OK');
     });
   });
 }
@@ -118,23 +118,29 @@ function deleteRecords() {
   database.transaction(function(transaction) {
     transaction.executeSql('DELETE FROM SampleTable');
   }, function(error) {
-    navigator.notification.alert('DELETE error: ' + error.message);
+    showMessage('DELETE error: ' + error.message);
   }, function() {
-    navigator.notification.alert('DELETE OK');
+    showMessage('DELETE OK');
     ++nextUser;
   });
 }
 
-function nativeAlertTest() {
-  navigator.notification.alert('Native alert test message');
+function alertTest() {
+  showMessage('Alert test message');
 }
 
 function goToPage2() {
   window.location = "page2.html";
 }
 
+function showMessage(message) {
+  console.log(message);
+  if (window.cordova.platformId === 'osx') window.alert(message);
+  else navigator.notification.alert(message);
+}
+
 document.addEventListener('deviceready', function() {
-  $('#native-alert-test').click(nativeAlertTest);
+  $('#alert-test').click(alertTest);
   $('#echo-test').click(echoTest);
   $('#self-test').click(selfTest);
   $('#reload').click(reload);
