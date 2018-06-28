@@ -10,8 +10,6 @@ Template to demonstrate reproducible issues with Cordova sqlite plugin (using JQ
 
 **IMPORTANT:** Whitelist and intent items are omitted from this test app.
 
-**NOTICE:** This test does not work on macOS ("osx") since it is not supported by `cordova-plugin-dialogs`.
-
 ## Dependencies
 
 - Bootstrap (3.3.7) - included (MIT license)
@@ -20,6 +18,8 @@ Template to demonstrate reproducible issues with Cordova sqlite plugin (using JQ
 - Cordova sqlite plugin - please add the desired version from the Cordova CLI as described below
 
 IMPORTANT NOTE: `cordova-plugin-dialogs` was added using the `--save` flag to ensure that this plugin would be tracked in `config.xml` for automatic installation. It is recommended to use the `--save` flag on Cordova pre-7.0 to track any other plugins added in `config.xml` (this is automatic starting with Cordova `7.0`). It is NOT recommended to commit `plugins` or `platforms` directories to git or any other form of source code control.
+
+Additional note: `cordova-plugin-dialogs` does not currently support macOS ("osx"). As a workaround this project automatically uses `window.alert` if necessary.
 
 ## To add another plugin
 
@@ -58,7 +58,7 @@ cordova run android
 ## Functionality
 
 - Upon startup: open a database and CREATE the test table
-- Native alert dialog test
+- Alert dialog test (native alert if possible)
 - Echo test
 - Self test
 - Location reload
