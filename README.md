@@ -1,4 +1,4 @@
-# Cordova sqlite bootstrap starter app
+# Cordova SQLite storage starter app
 
 **AUTHOR:** [@brodybits (Christopher J. Brody aka Chris Brody)](https://github.com/brodybits)
 
@@ -10,7 +10,7 @@
 
 **NOTICE 1:** This app does not work on macOS ("osx") since it is not supported by `cordova-plugin-dialogs`.
 
-**ADDITIONAL NOTE:** This project is now updated to use `cordova-sqlite-storage` 2.2.x which requires Visual Studio 2017 for _the Windows 10 (UWP) build_.
+**ADDITIONAL NOTE:** This project is now updated to use `cordova-sqlite-storage` 2.3.x which requires Visual Studio 2017 for Windows 10 (UWP) build.
 
 ## Dependencies
 
@@ -19,13 +19,15 @@
 - `cordova-plugin-dialogs` - specified in `config.xml`
 - `cordova-sqlite-storage` plugin - specified in `config.xml`
 
-NOTE: The plugins were added using the `--save` flag to ensure that they would be automatically installed. It is recommended to use the `--save` flags to add any other plugins rather than adding such plugins to git.
+IMPORTANT NOTE: The plugins were added using the `--save` flag to ensure that they would be tracked in `config.xml` for automatic installation. It is recommended to use the `--save` flag on Cordova pre-7.0 to track any other plugins added in `config.xml` (this is automatic starting with Cordova `7.0`). It is NOT recommended to commit `plugins` or `platforms` directories to git or any other form of source code control.
 
 ## To add another plugin
 
 ```shell
 cordova plugin add my-plugin-id --save
 ```
+
+NOTE: `--save` flag is automatic and not needed in Cordova 7.0 and greater
 
 ## How to run
 
