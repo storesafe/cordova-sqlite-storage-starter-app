@@ -1,6 +1,6 @@
-# Cordova sqlite bootstrap test app
+# Cordova sqlite test app
 
-Template to demonstrate reproducible issues with Cordova sqlite plugin. May be used as a starter project.
+Template to demonstrate reproducible issues with Cordova sqlite plugin (using JQuery and Bootstrap 3). May be used as a starter project.
 
 **AUTHOR:** [@brodybits (Christopher J. Brody aka Chris Brody)](https://github.com/brodybits)
 
@@ -19,7 +19,7 @@ Template to demonstrate reproducible issues with Cordova sqlite plugin. May be u
 - `cordova-plugin-dialogs` - specified in `config.xml`
 - Cordova sqlite plugin - please add the desired version from the Cordova CLI as described below
 
-NOTE: `cordova-plugin-dialogs` was added using the `--save` flag to ensure that this plugin would be automatically installed. It is recommended to use the `--save` flags to add any other plugins rather than adding such plugins to git.
+IMPORTANT NOTE: `cordova-plugin-dialogs` was added using the `--save` flag to ensure that this plugin would be tracked in `config.xml` for automatic installation. It is recommended to use the `--save` flag on Cordova pre-7.0 to track any other plugins added in `config.xml` (this is automatic starting with Cordova `7.0`). It is NOT recommended to commit `plugins` or `platforms` directories to git or any other form of source code control.
 
 ## To add another plugin
 
@@ -34,6 +34,8 @@ cordova plugin add my-plugin-id --save
 ```shell
 cordova plugin add cordova-sqlite-storage --save
 ```
+
+NOTE: `--save` flag is automatic and not needed in Cordova 7.0 and greater
 
 2. Add the desired platform(s), for example:
 
