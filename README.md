@@ -6,7 +6,7 @@ Template to demonstrate reproducible issues with Cordova sqlite plugin. May be u
 
 **LICENSE:** [CC0 1.0 (public domain)](https://creativecommons.org/publicdomain/zero/1.0/)
 
-**NOTE:** This project includes JQuery (2.2.4) and Bootstrap (3.3.6) under the MIT license. Otherwise there is no code copied from other sources.
+**NOTE:** This project includes JQuery (3.3.1) and Bootstrap (3.3.6) under the MIT license. Otherwise there is no code copied from other sources.
 
 **IMPORTANT:** Whitelist and intent items are omitted from this test app.
 
@@ -15,7 +15,7 @@ Template to demonstrate reproducible issues with Cordova sqlite plugin. May be u
 ## Dependencies
 
 - Bootstrap (3.3.6) - included (MIT license)
-- JQuery (2.2.4) - included (MIT license)
+- JQuery (3.3.1) - included (MIT license)
 - `cordova-plugin-dialogs` - specified in `config.xml`
 - Cordova sqlite plugin - please add the desired version from the Cordova CLI as described below
 
